@@ -42,7 +42,41 @@ public class Konto {
         }
     }
     public void print(){
-        System.out.println("Konto: " + no + "Saldo: " + saldo + "Rate: " + rate);
+        System.out.println("Konto: " + no + "\nSaldo: " + saldo + "\nRate: " + rate);
     }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Konto.count = count;
+    }
+
+    public int getNo() {
+        return no;
+    }
+
+    public void setNo(int no) {
+        this.no = no;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+    
+    
             
 }

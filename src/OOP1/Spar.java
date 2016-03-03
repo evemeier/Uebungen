@@ -12,21 +12,25 @@ package OOP1;
  */
 public class Spar extends Konto {
     private double maxOut;
-
-
-    public Spar(double maxOut, double saldo, double rate) {
+    
+    public Spar(double saldo, double rate, double maxOut) {
         super(saldo, rate);
         this.maxOut = maxOut;
     }
     
     public double getSaldo(){
-        return super.saldo;
+       return(super.getSaldo());
+       
     }
     
     @Override
     public void payOut(double oSumme){
         if(oSumme > maxOut){
             System.out.println("Nicht genug Saldo");
+        }
+        else{
+            double kontostand = super.getSaldo();
+            super.setSaldo(kontostand - oSumme);
         }
     }
     
