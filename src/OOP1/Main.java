@@ -16,7 +16,6 @@ public class Main {
         System.out.println("hello");
         
         Bank b1 = new Bank("Geili Sau");
-       
         
         Spar s1 = new Spar(10_000, 5, 2_000);
         System.out.println(s1.getSaldo());
@@ -28,14 +27,11 @@ public class Main {
         System.out.println(s1.getSaldo()); 
         
         Konto k1 = new Konto(4_000, 1);
-        
-         b1.openSpar(s1);
-         b1.openKonto(k1);
-         b1.printFund();
-         b1.printAccounts();
-         
-        
-        
+       
+        b1.openSpar(s1);
+        b1.openKonto(k1);
+        b1.printFund();
+        b1.printAccounts();     
       
     }   
 }
