@@ -20,7 +20,7 @@ public class ListOne implements IList {
 
     @Override
     public boolean remove(Integer value) {
-       // ?
+       // ???
        return(false);
     }
 
@@ -39,16 +39,12 @@ public class ListOne implements IList {
 
     @Override
     public boolean removeValues(int value) {
+        //??
         return removeValue(value);
     }
 
     @Override
     public int size() {
-//      int count = 0;
-//      for(Integer i : list){
-//          count++;
-//      }
-//      return count;
         return(list.size());
     }
 
