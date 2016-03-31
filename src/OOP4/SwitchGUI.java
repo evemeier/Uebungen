@@ -13,7 +13,7 @@ import javax.swing.*; //für GUI Elemente
  * @author eve
  */
 public final class SwitchGUI extends JFrame implements ActionListener{
-    private final JLabel label = new JLabel ("The switch is OFF");
+    private final JLabel label = new JLabel ("The Switch is OFF");
     private final JButton buttonOn = new JButton ("ON");
     private final JButton buttonOff = new JButton ("OFF");
     private final JButton buttonClose = new JButton("Close");

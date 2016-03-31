@@ -12,7 +12,7 @@ import javax.swing.*; //für GUI Elemente
  *
  * @author eve
  */
-public class Calculator extends JFrame{
+public class Calculator extends JFrame implements ActionListener{
     
     private final JButton button0 = new JButton ("0");
     private final JButton button1 = new JButton ("1");
@@ -32,7 +32,11 @@ public class Calculator extends JFrame{
     private final JButton buttonSub = new JButton ("-");
     private final JButton buttonSum = new JButton ("+");
     private TextField text; 
-
+    
+    private int operand1;
+    private int operand2;
+    private int resultat;
+    private int operator;
     
     public Calculator(){
      super("Calculator"); //Set windows title
@@ -66,9 +70,110 @@ public class Calculator extends JFrame{
     add(text, BorderLayout.NORTH); 
     add(panel, BorderLayout.SOUTH); 
      
-     setVisible(true);
+    button0.addActionListener(this);
+    button1.addActionListener(this);
+    button2.addActionListener(this);
+    button3.addActionListener(this);
+    button4.addActionListener(this);
+    button5.addActionListener(this);
+    button6.addActionListener(this);
+    button7.addActionListener(this);
+    button8.addActionListener(this);
+    button9.addActionListener(this);
+    buttonC.addActionListener(this);
+    buttonS.addActionListener(this);
+    buttonGleich.addActionListener(this);
+    buttonDiv.addActionListener(this);
+    buttonMul.addActionListener(this);
+    buttonSub.addActionListener(this);
+    buttonSum.addActionListener(this);
+    
+    setVisible(true);
     }
      public static void main(String[] args){
         EventQueue.invokeLater(() -> new Calculator());
     }
+    public void actionPerformed(ActionEvent event){
+        //Rechenlogik
+        
+        //Erster Buchstabe der Buttonbeschriftung holen
+        char ch = (event.getActionCommand()).charAt(0);
+        
+        //Durch ersten Buchstaben des Buttons - Operand setzen
+        switch(ch){
+            case '+':
+                operator = 1;
+                break;
+            case '-':
+                operator = 2;
+                break;
+            case '*':
+                operator = 3;
+                break;
+            case '/':
+                operator = 4;
+                break;
+                
+           //Wenn Gleich gedrückt Resulat berechnen und ausgeben
+            case '=':
+                switch(operator){
+                    case 0:
+                        resultat= operand1;
+                        break;
+                    case 1:
+                        resultat = operand1 + operand2;
+                        operator = 0;
+                        break;
+                    case 2:
+                        resultat = operand1 - operand2;
+                        operator = 0;
+                        break;
+                    case 3:
+                        resultat = operand1 * operand2;
+                        operator = 0;
+                        break;
+                    case 4:
+                        resultat = operand1 / operand2;
+                        operator = 0;
+                        break;
+                }
+                text.setText("" + resultat);
+                break;
+                
+            //Wenn Clear gedrückt alles löschen und 0 anzeigen    
+            case 'C':
+                operator = 0;
+                operand1 = 0;
+                operand2 = 0;
+                resultat = 0;
+                text.setText("" + resultat);
+                break;
+            
+            //Wenn S gedrückt falls kein Operand operator 1 zeichen kehren und anzeigen, sonst operator2
+            case 'S':
+                if(operator == 0){
+                    operand1 *= -1;
+                    text.setText(""+operand1);
+                }
+                else{
+                    operand2 *= -1;
+                    text.setText(""+operand2);
+                }
+                break;
+            //Wenn nichts oben zutrifft, dann wird es wohl eine Zahl sein
+            default:
+                int digit = ch - '0'; // int Wert bestimmen von Char
+                if (operator == 0){
+                    operand1 = (operand1 * 10) + digit;
+                    text.setText(""+operand1);
+                }
+                else{
+                    operand2 = (operand2 * 10) + digit;
+                    text.setText(""+operand2);
+                }
+                break;
+                           
+        } //Klammer zu Switch
+              
+    } //Klammer zu Funktion
 }
