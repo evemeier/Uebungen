@@ -31,7 +31,7 @@ public class Cube implements Comparable<Cube> {
     }
 
     public int getSurface() {
-        throw new NotImplementedException();
+        return ((2*a*b)+(2*a*c)+(2*b*c));
     }
 
     public int getMaxDimension() {
@@ -77,7 +77,8 @@ public class Cube implements Comparable<Cube> {
     
     @Override 
     public String toString(){
-        
+    return("---------- \n CUBE "+number+"\n Sides: "+a+" "+b+" "+c+"\n Volume= "+getVolume()+"\n Surface= "+getSurface()+"\n ----------");
+    //return("Hello");
     }
     
     @Override

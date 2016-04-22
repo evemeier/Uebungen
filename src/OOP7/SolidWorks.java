@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+
+import java.util.Arrays;
+
 /**
  * SolidWorks GUI to read data from file and display them in different orders.
  */
@@ -73,15 +76,15 @@ public final class SolidWorks extends JFrame implements ActionListener {
             doOutput();
         }
         if ((event.getSource() == bSort1) && (solids != null)) {
-            // your turn
+            Arrays.sort(solids);
             doOutput();
         }
         if ((event.getSource() == bSort2) && (solids != null)) {
-            // your turn
+            Arrays.sort(solids, new SurfaceComparator());
             doOutput();
         }
         if ((event.getSource() == bSort3) && (solids != null)) {
-            // your turn
+           Arrays.sort(solids, new MaxDimensionComparator());
             doOutput();
         }
     }
